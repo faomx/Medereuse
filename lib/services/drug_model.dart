@@ -1,0 +1,42 @@
+class DrugModel {
+  final String drugId;
+  final String brandName;
+  final String genericName;
+  final String description;
+  final String imageUrl;
+  final String therapeuticCategory;
+  final String type;
+
+  DrugModel({
+    required this.drugId,
+    required this.brandName,
+    required this.genericName,
+    required this.description,
+    required this.imageUrl,
+    required this.therapeuticCategory,
+    required this.type,
+  });
+
+  factory DrugModel.fromMap(Map<String, dynamic> map, {required String drugId}) {
+    return DrugModel(
+      drugId: drugId,
+      brandName: map['brandName'] ?? '',
+      genericName: map['genericName'] ?? '',
+      description: map['description'] ?? '',
+      imageUrl: map['imageUrl'] ?? '',
+      therapeuticCategory: map['therapeuticCategory'] ?? '',
+      type: map['type'] ?? '',
+    );
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'brandName': brandName,
+      'genericName': genericName,
+      'description': description,
+      'imageUrl': imageUrl,
+      'therapeuticCategory': therapeuticCategory,
+      'type': type,
+    };
+  }
+}
